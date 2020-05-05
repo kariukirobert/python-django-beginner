@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div>
+
+        <div style="">
+            {% for blog in blogs %}
+                {% include 'blog/inline-blogs.html' with blog_post=blog truncate=True detail=False %}
+            {% endfor%}
+        </div>
+    </div>
+
+{% endblock content %}

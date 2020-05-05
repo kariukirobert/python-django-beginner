@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    {% include 'blog/inline-blogs.html' with blog_post=blog detail=True %}
+
+    {% comment %} <h3>Title: {{ blog.title }}</h3>
+    <div>Content: {{ blog.content }}</div> {% endcomment %}
+
+    {% if request.user.is_authenticated %}
+
+        <a href="{{ blog.get_edit_url }}">Edit</a>
+        <a href="{{ blog.get_delete_url }}">Delete</a>
+
+    {% endif %}
+
+    
+
+{% comment %} 
+        <a href="{{ blog.get_edit_url }}">Edit</a>
+        <a href="{{ blog.get_delete_url }}">Delete</a> {% endcomment %}
+
+
+
+{% endblock %}

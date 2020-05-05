@@ -1,0 +1,16 @@
+
+<div style="padding:10px;margin:10px; {%  if not blog_post.publish_date %} border:2px solid yellow;  {%endif%}">
+    <h2>{{ blog_post.title }}</h2>
+    <p>{{ blog_post.publish_date }}</p>
+    {% if truncate %}
+        <p>{{ blog_post.content|linebreaks|truncatewords:20 }}</p>
+    {% else %}
+        <p>{{ blog_post.content|linebreaks }}</p>
+    {% endif %}
+
+    {% if not detail %}
+        <br>
+        {% if not blog_post.publish_date %}Draft{% endif %}
+        <a href="{{ blog_post.get_absolute_url }}">view</a>
+    {% endif %}
+</div>
